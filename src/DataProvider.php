@@ -18,10 +18,10 @@ class DataProvider extends CodeceptionModule
      *
      * modules:
      *     enabled:
-     *         \Helper\DataProvider
+     *         DataProvider
      *         ... # some other modules
      *     config:
-     *         \Helper\DataProvider:
+     *         DataProvider:
      *             dataPathTpl: '{root}/tests/_data/{file}'
      *             files:
      *                 - common.yml
