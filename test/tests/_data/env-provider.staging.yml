@@ -1,0 +1,11 @@
+users:
+    admins:
+        username: staging-admin
+        password: staging123xx
+    editors:
+        -
+            username: staging-editor
+            password: staging123
+        -
+            username: john
+            password: john123

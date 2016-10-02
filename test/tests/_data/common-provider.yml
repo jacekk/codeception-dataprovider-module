@@ -1,0 +1,6 @@
+headers:
+    accept: 'application/json'
+    apiProblem: 'application/problem+json'
+    xAppMode:
+        name: 'X-App-Mode'
+        value: 'testing'

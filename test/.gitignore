@@ -1,0 +1,7 @@
+/vendor/
+
+tests/_output/*
+tests/_support/*
+tests/_envs/local.yml
+
+!*.gitkeep

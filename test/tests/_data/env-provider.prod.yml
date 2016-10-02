@@ -1,0 +1,11 @@
+users:
+    admins:
+        username: prod-admin
+        password: prod123xx
+    editors:
+        -
+            username: prod-editor
+            password: prod123
+        -
+            username: john
+            password: john123

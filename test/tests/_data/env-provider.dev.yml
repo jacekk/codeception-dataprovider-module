@@ -1,0 +1,11 @@
+users:
+    admins:
+        username: dev-admin
+        password: dev123xx
+    editors:
+        -
+            username: dev-editor
+            password: dev123
+        -
+            username: john
+            password: john123

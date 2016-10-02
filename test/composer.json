@@ -1,0 +1,14 @@
+{
+    "name": "jacekk/codeception-dataprovider-module/tests",
+    "description": "Test suite for the codeception-dataprovider-module.",
+    "authors": [
+        {
+            "name": "jacekk"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "codeception/codeception": "^2.2",
+        "jacekk/codeception-dataprovider-module": "dev-master"
+    }
+}

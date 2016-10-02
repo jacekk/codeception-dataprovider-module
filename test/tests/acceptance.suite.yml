@@ -1,0 +1,11 @@
+class_name: NoGuy
+modules:
+    enabled:
+        - Asserts
+        - DataProvider
+    config:
+        DataProvider:
+            dataPathTpl: '{root}/tests/_data/{file}'
+            files:
+                - common-provider.yml
+                - env-provider.dev.yml
