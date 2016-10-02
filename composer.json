@@ -1,6 +1,6 @@
 {
     "name": "jacekk/codeception-dataprovider-module",
-    "description": "Easy data providers in your Codeception tests",
+    "description": "Easy data providers in your Codeception tests.",
     "license": "MIT",
     "authors": [
         {

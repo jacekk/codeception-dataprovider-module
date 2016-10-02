@@ -1,13 +1,14 @@
 <?php
 
-namespace Helper;
+namespace Codeception\Module;
 
 use Codeception\Exception\ModuleConfigException;
 use Codeception\Exception\ModuleException;
+use Codeception\Module as CodeceptionModule;
 use Jasny\DotKey;
 use Symfony\Component\Yaml\Yaml;
 
-class DataProvider extends \Codeception\Module
+class DataProvider extends CodeceptionModule
 {
     const PARAM_KEY__DATA_PATH_TPL = 'dataPathTpl';
     const PARAM_KEY__FILES         = 'files';
