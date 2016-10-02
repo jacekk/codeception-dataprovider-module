@@ -13,8 +13,6 @@ class DataProvider extends CodeceptionModule
     const PARAM_KEY__DATA_PATH_TPL = 'dataPathTpl';
     const PARAM_KEY__FILES         = 'files';
 
-    public static $includeInheritedActions = false;
-
     /**
      * @example
      *
