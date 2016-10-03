@@ -18,6 +18,14 @@ class DataProviderCest
         $I->assertInternalType('array', $admin);
     }
 
+    public function getSpecificArrayElementData(NoGuy $I)
+    {
+        $editorName = $I->getValue('users.editors.1.username');
+
+        $I->assertNotNull($editorName);
+        $I->assertEquals('john', $editorName);
+    }
+
     public function getExistingArrayWithMultipleElementsData(NoGuy $I)
     {
         $editors = $I->getValue('users.editors');

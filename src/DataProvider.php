@@ -131,7 +131,7 @@ class DataProvider extends CodeceptionModule
     }
 
     /**
-     * Loads data from a YML "file" (of available) and concat it with data provided as "data" field.
+     * Loads data from a YML "file" (of available).
      */
     protected function loadProvidedData()
     {
@@ -149,7 +149,7 @@ class DataProvider extends CodeceptionModule
     }
 
     /**
-     * Overridden to check/validate 'file' and 'data' fields.
+     * Overridden to check/validate required fields. Use --debug flag for details in case of any problem.
      */
     protected function validateConfig()
     {
@@ -175,6 +175,9 @@ class DataProvider extends CodeceptionModule
         }
     }
 
+    /**
+     * @return array
+     */
     protected function getFilesPaths()
     {
         $paths = $this->config[self::PARAM_KEY__FILES];
@@ -186,6 +189,10 @@ class DataProvider extends CodeceptionModule
         return $paths;
     }
 
+    /**
+     * @param  string $filePath
+     * @return string
+     */
     protected function getFullPath($filePath)
     {
         $filePath = strval($filePath);
@@ -199,6 +206,10 @@ class DataProvider extends CodeceptionModule
         ]);
     }
 
+    /**
+     * @param  string $keyName
+     * @return array
+     */
     protected function getIterator($keyName)
     {
         $iterator = $this->getValue($keyName);
