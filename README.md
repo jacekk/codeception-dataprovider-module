@@ -1,6 +1,6 @@
 # Codeception DataProvider Module
 
-This module helps to manage data (that you use inside tests) in an easy way. Especially when you like Yaml/YML files format :)
+This module helps to manage data (that you use inside tests) in an easy way. Especially, when you like Yaml/YML files format.
 
 * [Installation](#installation)
 * [Parameters](#parameters)
