@@ -1,5 +1,7 @@
 # Codeception DataProvider Module
 
+[![Build Status](https://travis-ci.org/jacekk/codeception-dataprovider-module.svg)](https://travis-ci.org/jacekk/codeception-dataprovider-module)
+
 This module helps to manage data (that you use inside tests) in an easy way. Especially, when you like Yaml/YML files format.
 
 * [Installation](#installation)
