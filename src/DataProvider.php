@@ -92,11 +92,12 @@ class DataProvider extends CodeceptionModule
      *             email: two(at)gmail.com
      *             fullName: Tom The Second
      *
-     * // or (this will also work, even it is not a list)
+     * // or (this will also work, even it is not an ordered list)
      * users:
      *     admins:
-     *         email: mark(at)gmail.com
-     *         fullName: Mark Whaleberg
+     *         -
+     *             email: mark(at)gmail.com
+     *             fullName: Mark Whaleberg
      *
      * @param  string   $keyName Key name in provided data. Use dot char to point to nested items.
      * @param  callable $callback
@@ -210,18 +211,30 @@ class DataProvider extends CodeceptionModule
      * @param  string $keyName
      * @return array
      */
+
     protected function getIterator($keyName)
     {
         $iterator = $this->getValue($keyName);
 
-        if (is_null($iterator)) {
+        if (is_null($iterator) || ! is_array($iterator)) {
             return [];
         }
 
-        if (is_array($iterator) && isset($iterator[0])) {
+        if ($this->isAssoc($iterator)) {
             return $iterator;
         }
 
-        return [ $iterator ];
+        return count($iterator) === 0 ? [ $iterator ] : $iterator;
+    }
+
+    /**
+     * @param  array   $data
+     * @return boolean
+     */
+    protected function isAssoc(array $data)
+    {
+        $seqOnly = range(0, count($data) - 1);
+
+        return array_keys($data) !== $seqOnly;
     }
 }

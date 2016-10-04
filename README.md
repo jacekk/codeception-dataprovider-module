@@ -112,13 +112,14 @@ users:
             fullName: Tom The Second
 ```
 
-or (this will also work, even it is not a list):
+or (this will also work, even it is not an ordered list):
 ```yaml
 users:
     admins:
-        id: 111
-        email: mark(at)gmail.com
-        fullName: Mark Whaleberg
+        -
+            id: 111
+            email: mark(at)gmail.com
+            fullName: Mark Whaleberg
 ```
 
 PHP code:
