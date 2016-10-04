@@ -1,6 +1,6 @@
 <?php
 
-class DataProviderCest
+class GetValueCest
 {
     public function getExistingDataValue(NoGuy $I)
     {

@@ -139,7 +139,7 @@ public function testAdminsDataInUsersResource(NoGuy $I)
 }
 ```
 
-See more examples in [DataProviderCest file](test/tests/acceptance/DataProviderCest.php) which verifies this module quality.
+See more examples in [GetValueCest](test/tests/acceptance/GetValueCest.php) which verifies this module quality.
 
 ## License
 
