@@ -5,8 +5,8 @@ php:
   - '7.0'
 
 before_install:
-    cd test
-    composer install
-    php vendor/bin/codecept build
+    - cd test
+    - composer install
+    - php vendor/bin/codecept build
 
 script: php vendor/bin/codecept run --debug
