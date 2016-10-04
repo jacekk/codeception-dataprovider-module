@@ -4,18 +4,18 @@ class GetValueCest
 {
     public function getExistingDataValue(NoGuy $I)
     {
-        $adminName = $I->getValue('users.admins.username');
+        $returnedValue = $I->getValue('headers.xAppMode.name');
 
-        $I->assertNotNull($adminName);
-        $I->assertInternalType('string', $adminName);
+        $I->assertNotNull($returnedValue);
+        $I->assertInternalType('string', $returnedValue);
     }
 
     public function getExistingArrayData(NoGuy $I)
     {
-        $admin = $I->getValue('users.admins');
+        $adminData = $I->getValue('users.admins');
 
-        $I->assertNotNull($admin);
-        $I->assertInternalType('array', $admin);
+        $I->assertNotNull($adminData);
+        $I->assertInternalType('array', $adminData);
     }
 
     public function getSpecificArrayElementData(NoGuy $I)

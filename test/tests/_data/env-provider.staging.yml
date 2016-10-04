@@ -1,7 +1,8 @@
 users:
     admins:
-        username: staging-admin
-        password: staging123xx
+        -
+            username: staging-admin
+            password: staging123xx
     editors:
         -
             username: staging-editor

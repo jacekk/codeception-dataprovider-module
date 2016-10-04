@@ -1,7 +1,8 @@
 users:
     admins:
-        username: dev-admin
-        password: dev123xx
+        -
+            username: dev-admin
+            password: dev123xx
     editors:
         -
             username: dev-editor
