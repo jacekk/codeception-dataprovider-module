@@ -6,9 +6,14 @@
             "name": "jacekk"
         }
     ],
-    "minimum-stability": "dev",
+    "minimum-stability": "stable",
     "require": {
         "codeception/codeception": "^2.2",
-        "jacekk/codeception-dataprovider-module": "dev-master"
+        "jasny/dotkey": "^1.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Codeception\\Module\\": "../src"
+        }
     }
 }
