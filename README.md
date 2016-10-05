@@ -57,7 +57,7 @@ $ php codecept.phar build
 or
 
 ```sh
-$ vendor/bincodecept build
+$ vendor/bin/codecept build
 ```
 
 or whatever your tool set allowes :) At last, check out the [examples](#usage-examples) section and use it daily :)
