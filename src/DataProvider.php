@@ -113,11 +113,6 @@ class DataProvider extends CodeceptionModule
             throw new ModuleException(get_class($this), $msg);
         }
 
-        if (! is_callable($callback)) {
-            $msg = 'Given "$callback" is not callable.';
-            throw new ModuleException(get_class($this), $msg);
-        }
-
         $this->debugSection('Iteration key name', $keyName);
         $this->debugSection('Iteration data', $iterator);
 
