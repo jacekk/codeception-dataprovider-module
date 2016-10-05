@@ -99,7 +99,7 @@ class DataProviderTest extends \Codeception\Test\Unit
 
 
     /** @test */
-    public function shouldThrowExceptionifFileIsUnreadable()
+    public function shouldThrowExceptionIfFileIsUnreadable()
     {
         $configWithOneFile = $this->moduleConfig;
         $configWithOneFile[DataProvider::PARAM_KEY__DATA_PATH_TPL] = './not/a/valid/directory/{file}';
