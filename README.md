@@ -146,7 +146,7 @@ public function testAdminsDataInUsersResource(NoGuy $I)
 }
 ```
 
-See more examples in [GetValueCest](test/tests/acceptance/GetValueCest.php) which verifies this module quality.
+See more examples in [GetValueCest](test/tests/acceptance/GetValueCest.php) and [IterateOverCest](test/tests/acceptance/IterateOverCest.php) which verify this module quality.
 
 ## License
 
