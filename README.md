@@ -1,6 +1,10 @@
 # Codeception DataProvider Module
 
 [![Build Status](https://travis-ci.org/jacekk/codeception-dataprovider-module.svg)](https://travis-ci.org/jacekk/codeception-dataprovider-module)
+[![Total Downloads](https://poser.pugx.org/jacekk/codeception-dataprovider-module/d/total.svg)](https://packagist.org/packages/jacekk/codeception-dataprovider-module)
+[![Latest Stable Version](https://poser.pugx.org/jacekk/codeception-dataprovider-module/v/stable.svg)](https://packagist.org/packages/jacekk/codeception-dataprovider-module)
+[![Latest Unstable Version](https://poser.pugx.org/jacekk/codeception-dataprovider-module/v/unstable.svg)](https://packagist.org/packages/jacekk/codeception-dataprovider-module)
+[![License](https://poser.pugx.org/jacekk/codeception-dataprovider-module/license.svg)](https://packagist.org/packages/jacekk/codeception-dataprovider-module)
 
 This module helps to manage data (that you use inside tests) in an easy way. Especially, when you like Yaml/YML files format.
 
