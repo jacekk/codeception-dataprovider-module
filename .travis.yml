@@ -9,4 +9,7 @@ before_install:
     - composer install
     - php vendor/bin/codecept build
 
-script: php vendor/bin/codecept run --debug
+script:
+    - php vendor/bin/codecept run unit --debug --coverage
+    - php vendor/bin/codecept run acceptance --debug --skip-group staging
+    - php vendor/bin/codecept run acceptance --debug --env staging --group staging

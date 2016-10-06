@@ -26,6 +26,25 @@ class GetValueCest
         $I->assertEquals('john', $editorName);
     }
 
+    public function getSpecificArrayElementDataForDevEnvironment(NoGuy $I)
+    {
+        $editorName = $I->getValue('users.editors.0.username');
+
+        $I->assertNotNull($editorName);
+        $I->assertEquals('dev-editor', $editorName);
+    }
+
+    /**
+     * @group staging
+     */
+    public function getSpecificArrayElementDataForStagingEnvironment(NoGuy $I)
+    {
+        $editorName = $I->getValue('users.editors.0.username');
+
+        $I->assertNotNull($editorName);
+        $I->assertEquals('staging-editor', $editorName);
+    }
+
     public function getExistingArrayWithMultipleElementsData(NoGuy $I)
     {
         $editors = $I->getValue('users.editors');
