@@ -97,7 +97,6 @@ class DataProviderTest extends \Codeception\Test\Unit
         });
     }
 
-
     /** @test */
     public function shouldThrowExceptionIfFileIsUnreadable()
     {
@@ -107,5 +106,41 @@ class DataProviderTest extends \Codeception\Test\Unit
         $this->guy->expectException(ModuleConfigException::class, function () use ($configWithOneFile) {
             $this->module = new DataProvider($this->moduleContainer, $configWithOneFile);
         });
+    }
+
+    /** @test */
+    public function shouldIterateThroughAllElementsData()
+    {
+        $this->module->_initialize();
+        $editors = $this->module->getValue('users.editors');
+        $iterationCounter = 0;
+
+        $this->module->iterateOver('users.editors', function ($item, $index)
+            use ($editors, & $iterationCounter)
+        {
+            $this->guy->assertEquals($iterationCounter, $index);
+            $this->guy->assertEquals($editors[$index], $item);
+            $iterationCounter += 1;
+        });
+
+        $this->guy->assertEquals(count($editors), $iterationCounter);
+    }
+
+    /** @test */
+    public function shouldPassAssocArrayKeyNamesAsSecondParam()
+    {
+        $this->module->_initialize();
+        $listKeys = array_keys($this->module->getValue('headers'));
+        $iterationCounter = 0;
+
+        $this->module->iterateOver('headers', function ($item, $keyName)
+            use ($listKeys, & $iterationCounter)
+        {
+            $this->guy->assertTrue(in_array($keyName, $listKeys));
+            $this->guy->assertNotNull($item);
+            $iterationCounter += 1;
+        });
+
+        $this->guy->assertEquals(count($listKeys), $iterationCounter);
     }
 }
