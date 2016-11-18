@@ -21,7 +21,7 @@ Add the package into your *composer.json* file:
 {
     "require-dev": {
         "codeception/codeception": "2.*",
-        "jacekk/jacekk/codeception-dataprovider-module": "1.*"
+        "jacekk/codeception-dataprovider-module": "1.*"
     }
 }
 ```
