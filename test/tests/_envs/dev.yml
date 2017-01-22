@@ -1,0 +1,6 @@
+modules:
+    config:
+        DataProvider:
+            files:
+                - env-provider.dev.yml
+                # - common-provider.yml # this file is already passed in acceptance.suite.yml

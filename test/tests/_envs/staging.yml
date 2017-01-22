@@ -2,5 +2,4 @@ modules:
     config:
         DataProvider:
             files:
-                - common-provider.yml
                 - env-provider.staging.yml

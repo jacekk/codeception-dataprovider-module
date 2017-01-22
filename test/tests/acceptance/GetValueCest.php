@@ -35,6 +35,7 @@ class GetValueCest
     }
 
     /**
+     * @group args-specific
      * @group staging
      */
     public function getSpecificArrayElementDataForStagingEnvironment(NoGuy $I)
@@ -71,5 +72,38 @@ class GetValueCest
         $name = $I->getValue('non.existing.user.name', 'defaultName');
 
         $I->assertEquals('defaultName', $name);
+    }
+
+    /**
+     * @group args-specific
+     * @group multi-envs
+     *
+     * @runExample codecept run acceptance --env dev --env staging
+     */
+    public function getSpecificEnvUsernameForMultipleEnvParamInOneRun(NoGuy $I)
+    {
+        static $noCalls = 0; // workaround to count this very test calls
+        $noCalls += 1;
+
+        $adminName = $I->getValue('users.admins.0.username');
+
+        if ($noCalls === 1) {
+            $I->assertEquals('dev-admin', $adminName);
+        } else {
+            $I->assertEquals('staging-admin', $adminName);
+        }
+    }
+
+    /**
+     * @group args-specific
+     * @group merge-envs
+     *
+     * @runExample codecept run acceptance env dev,staging
+     */
+    public function getUsernameFromLastEnvMergedInOneEnvParam(NoGuy $I)
+    {
+        $editorName = $I->getValue('users.editors.0.username');
+
+        $I->assertEquals('staging-editor', $editorName);
     }
 }
