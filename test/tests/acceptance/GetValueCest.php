@@ -82,7 +82,7 @@ class GetValueCest
      */
     public function getSpecificEnvUsernameForMultipleEnvParamInOneRun(NoGuy $I)
     {
-        static $noCalls = 0; // workaround to count this very test calls
+        static $noCalls = 0; // workaround to count this very function calls
         $noCalls += 1;
 
         $adminName = $I->getValue('users.admins.0.username');
@@ -98,7 +98,7 @@ class GetValueCest
      * @group args-specific
      * @group merge-envs
      *
-     * @runExample codecept run acceptance env dev,staging
+     * @runExample codecept run acceptance --env dev,staging
      */
     public function getUsernameFromLastEnvMergedInOneEnvParam(NoGuy $I)
     {
