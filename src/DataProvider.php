@@ -136,7 +136,7 @@ class DataProvider extends CodeceptionModule
         foreach ($this->getFilesPaths() as $path) {
             $ymlContent   = file_get_contents($this->getFullPath($path));
             $data         = Yaml::parse($ymlContent);
-            $combinedData = array_merge_recursive($combinedData, $data);
+            $combinedData = array_replace_recursive($combinedData, $data);
 
             $this->debugSection('Data file loaded', $path);
         }
@@ -176,13 +176,16 @@ class DataProvider extends CodeceptionModule
      */
     protected function getFilesPaths()
     {
-        $paths = $this->config[self::PARAM_KEY__FILES];
+        $paths = $this->_getConfig(self::PARAM_KEY__FILES);
+
 
         if (is_string($paths)) {
             $paths = [ $paths ];
         }
 
-        return $paths;
+        $unique = array_unique($paths);
+
+        return array_reverse($unique);
     }
 
     /**
@@ -194,7 +197,7 @@ class DataProvider extends CodeceptionModule
         $filePath = strval($filePath);
         $filePath = str_replace('\\', '/', $filePath);
         $root     = str_replace('\\', '/', getcwd());
-        $template = $this->config[self::PARAM_KEY__DATA_PATH_TPL];
+        $template = $this->_getConfig(self::PARAM_KEY__DATA_PATH_TPL);
 
         return strtr($template, [
             '{root}' => rtrim($root, '/'),

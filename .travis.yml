@@ -11,5 +11,7 @@ before_install:
 
 script:
     - php vendor/bin/codecept run unit --debug --coverage
-    - php vendor/bin/codecept run acceptance --debug --skip-group staging
-    - php vendor/bin/codecept run acceptance --debug --env staging --group staging
+    - php vendor/bin/codecept run acceptance --debug --skip-group args-specific --env local
+    - php vendor/bin/codecept run acceptance --debug --group staging --env staging
+    - php vendor/bin/codecept run acceptance --debug --group multi-envs --env dev --env staging
+    - php vendor/bin/codecept run acceptance --debug --group merge-envs --env dev,staging
