@@ -28,7 +28,7 @@ class DataProviderTest extends \Codeception\Test\Unit
 
     protected function _before()
     {
-        $this->moduleContainer = Stub::make(ModuleContainer::class);
+        $this->moduleContainer = Stub::make('\Codeception\Lib\ModuleContainer');
         $this->module = new DataProvider($this->moduleContainer, $this->moduleConfig);
     }
 
@@ -39,7 +39,7 @@ class DataProviderTest extends \Codeception\Test\Unit
     /** @test */
     public function moduleInstanceShouldHaveBeenCreated()
     {
-        $this->guy->assertInstanceOf(DataProvider::class, $this->module);
+        $this->guy->assertInstanceOf('\Codeception\Module\DataProvider', $this->module);
     }
 
     /** @test */
@@ -63,7 +63,7 @@ class DataProviderTest extends \Codeception\Test\Unit
     public function shouldThrowExceptionForNonExistingDataAlias()
     {
         $this->module->_initialize();
-        $this->guy->expectException(ModuleException::class, function () {
+        $this->guy->expectException('\Codeception\Exception\ModuleException', function () {
             $this->module->iterateOver('non.existing.data', function () {});
         });
     }
@@ -86,13 +86,14 @@ class DataProviderTest extends \Codeception\Test\Unit
     /** @test */
     public function shouldThrowExceptionForNoFilesInConfig()
     {
+        $exceptionFQCN = 'Codeception\Exception\ModuleConfigException';
         $configWithOneFile = $this->moduleConfig;
         $configWithOneFile[DataProvider::PARAM_KEY__FILES] = [];
 
         $this->guy->assertInternalType('array', $configWithOneFile[DataProvider::PARAM_KEY__FILES]);
         $this->guy->assertEquals(0, count($configWithOneFile[DataProvider::PARAM_KEY__FILES]));
 
-        $this->guy->expectException(ModuleConfigException::class, function () use ($configWithOneFile) {
+        $this->guy->expectException($exceptionFQCN, function () use ($configWithOneFile) {
             $this->module = new DataProvider($this->moduleContainer, $configWithOneFile);
         });
     }
@@ -100,10 +101,11 @@ class DataProviderTest extends \Codeception\Test\Unit
     /** @test */
     public function shouldThrowExceptionIfFileIsUnreadable()
     {
+        $exceptionFQCN = 'Codeception\Exception\ModuleConfigException';
         $configWithOneFile = $this->moduleConfig;
         $configWithOneFile[DataProvider::PARAM_KEY__DATA_PATH_TPL] = './not/a/valid/directory/{file}';
 
-        $this->guy->expectException(ModuleConfigException::class, function () use ($configWithOneFile) {
+        $this->guy->expectException($exceptionFQCN, function () use ($configWithOneFile) {
             $this->module = new DataProvider($this->moduleContainer, $configWithOneFile);
         });
     }
